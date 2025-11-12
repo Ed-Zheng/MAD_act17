@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "454886444535",
+    "project_id": "madact17",
+    "storage_bucket": "madact17.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:454886444535:android:7b775ee8bc43dd8f93b2f2",
+        "android_client_info": {
+          "package_name": "com.example.act17"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyANcAdwAf4zintG82jpEvvqr0nbEftYFQ8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
