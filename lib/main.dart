@@ -53,13 +53,29 @@ class _MyHomePageState extends State<MyHomePage> {
     FirebaseMessaging.onMessage.listen((RemoteMessage event) {
       print("message recieved");
       print(event.notification!.body);
-      print(event.data.values);
+      print(event.data);
+
+      String? importantValue = event.data['important'];
+      String? regularValue = event.data['regular'];
+      String dialogTitle = "Notification";
+      String dialogMessage = event.notification!.body ?? "No message body";
+      Color? backgroundColor;
+
+      if (importantValue == "1") {
+        dialogTitle = "Important Notification";
+        backgroundColor = Colors.blue[100];
+      } else if (regularValue == "0") {
+        dialogTitle = "Regular Notification";
+        backgroundColor = null;
+      }
+
       showDialog(
           context: context,
           builder: (BuildContext context) {
             return AlertDialog(
-              title: Text("Notification"),
-              content: Text(event.notification!.body!),
+              backgroundColor: backgroundColor,
+              title: Text(dialogTitle),
+              content: Text(dialogMessage),
               actions: [
                 TextButton(
                   child: Text("Ok"),
@@ -73,6 +89,7 @@ class _MyHomePageState extends State<MyHomePage> {
     });
     FirebaseMessaging.onMessageOpenedApp.listen((message) {
       print('Message clicked!');
+      print(message.data);
     });
   }
 
